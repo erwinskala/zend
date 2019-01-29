@@ -8,3 +8,4 @@ nbproject
 .settings
 composer.lock
 vendor/bin
+/ZendSkeletonApplication-zf-release-2.2.6/
