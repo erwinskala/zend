@@ -4,6 +4,8 @@
  * to the application root now.
  */
 chdir(dirname(__DIR__));
+//If server version of PHP is lower than 5.4.0 add the following in your `index.php`
+define('REQUEST_MICROTIME', microtime(true));
 
 // Decline static file requests back to the PHP built-in webserver
 if (php_sapi_name() === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
@@ -15,3 +17,5 @@ require 'init_autoloader.php';
 
 // Run the application!
 Zend\Mvc\Application::init(require 'config/application.config.php')->run();
+
+
